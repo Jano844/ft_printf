@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_puthex_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/24 09:37:30 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/17 17:47:10 by jsanger          ###   ########.fr       */
+/*   Created: 2023/04/17 15:51:45 by jsanger           #+#    #+#             */
+/*   Updated: 2023/04/17 18:53:54 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_putstr_fd(char *s, int fd)
+void	ft_puthex_fd(int n, int fd)
 {
-	unsigned int	i;
-
-	i = 0;
-	while (s[i] != '\0')
+	if (n <= 9)
 	{
-		write(fd, &s[i], 1);
-		i++;
+		ft_putchar_fd(n + '0', fd);
 	}
-	return (i);
+	else if (n >= 10 && n <= 15)
+	{
+		ft_putchar_fd(n - 10 + 'a', fd);
+	}
+	else
+	{
+		ft_puthex_fd(n / 16, fd);
+		ft_puthex_fd(n % 16, fd);
+	}
 }
 
-// int main()
-// {
-//     char *c;
-//     int fd;
-//     fd = 1;
-//     c = "abcd";
-//     ft_putstr_fd(c, fd);
-// 	return 0;
-// }
+int	main(void)
+{
+	int	num;
+
+	num = 50;
+	printf("%x\n", num);
+	ft_puthex_fd(num, 1);
+	return (0);
+}

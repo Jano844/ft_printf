@@ -6,7 +6,7 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 09:36:57 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/17 14:52:10 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/04/18 09:21:56 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,40 @@
 #include <stdio.h>
 #include "libftprintf.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr_fd(int n, int fd)
 {
+	int	i;
+
+	i = 1;
 	if (n == -2147483648)
 	{
 		ft_putstr_fd("-2147483648", fd);
-		return ;
+		return (11);
 	}
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
 		n = -n;
+		i++;
 	}
-	if (n <= 9)
+	if (n >= 10)
 	{
-		ft_putchar_fd(n + '0', fd);
+		i += ft_putnbr_fd(n / 10, fd);
 	}
-	else
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
-	return ;
+	ft_putchar_fd(n % 10 + '0', fd);
+	return (i);
 }
 
-void	ft_put_unsigned_nbr_fd(unsigned int n, int fd)
+int	ft_put_unsigned_nbr_fd(unsigned int n, int fd)
 {
-	if (n <= 9)
+	int	i;
+
+	i = 1;
+	if (n >= 10)
 	{
-		ft_putchar_fd(n + '0', fd);
+		i += ft_put_unsigned_nbr_fd(n / 10, fd);
 	}
-	else
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
-	return ;
+	ft_putchar_fd(n % 10 + '0', fd);
+	return (i);
 }
+

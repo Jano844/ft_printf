@@ -6,16 +6,17 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 09:32:54 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/17 13:34:22 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/04/17 17:42:01 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "libftprintf.h"
 
-void	ft_putchar_fd(char c, int fd)
+int	ft_putchar_fd(char c, int fd)
 {
 	write(fd, &c, 1);
+	return (1);
 }
 
 // int main()
