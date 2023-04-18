@@ -6,13 +6,13 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:51:45 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/18 10:51:22 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/04/18 10:55:51 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int	ft_puthex_fd(int n, int fd, char c)
+int	ft_puthex_fd(unsigned int n, int fd, char c)
 {
 	int	i;
 
