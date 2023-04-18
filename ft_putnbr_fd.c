@@ -6,7 +6,7 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 09:36:57 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/18 09:21:56 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/04/18 09:27:34 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,3 @@ int	ft_put_unsigned_nbr_fd(unsigned int n, int fd)
 	ft_putchar_fd(n % 10 + '0', fd);
 	return (i);
 }
-

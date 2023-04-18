@@ -6,7 +6,7 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 09:07:10 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/18 09:26:19 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/04/18 09:31:27 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ int	ft_check_arg(va_list args, char format)
 		returnval += ft_putstr_fd(va_arg(args, char *), 1);
 	if (format == 'u')
 		returnval += ft_put_unsigned_nbr_fd(va_arg(args, unsigned int), 1);
+	if (format == '%')
+		returnval += ft_putchar_fd(format, 1);
 	return (returnval);
 }
 
@@ -43,13 +45,7 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			if (format[i] == '%')
-			{
-				ft_putchar_fd(format[i], 1);
-				returnval++;
-			}
-			else
-				returnval += ft_check_arg(args, format[i]);
+			returnval += ft_check_arg(args, format[i]);
 		}
 		else
 		{
