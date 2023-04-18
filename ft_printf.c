@@ -6,7 +6,7 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 09:07:10 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/18 09:31:27 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/04/18 10:51:47 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	ft_check_arg(va_list args, char format)
 		returnval += ft_put_unsigned_nbr_fd(va_arg(args, unsigned int), 1);
 	if (format == '%')
 		returnval += ft_putchar_fd(format, 1);
+	if (format == 'x' || format == 'X')
+		returnval += ft_puthex_fd(va_arg(args, int), 1, format);
 	return (returnval);
 }
 
@@ -60,7 +62,7 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	printf("{{%d}}\n", printf("abcdefg%% %u %s", 1234567, "abc"));
-	printf("{{%d}}\n", ft_printf("abcdefg%% %u %s", 1234567, "abc"));
+	printf("{{%d}}\n", printf("abcdefg%% %u %s %X", 1234567, "abc", 123));
+	printf("{{%d}}\n", ft_printf("abcdefg%% %u %s %X", 1234567, "abc", 123));
 	return (0);
 }
