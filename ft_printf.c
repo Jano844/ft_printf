@@ -6,7 +6,7 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 09:07:10 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/18 10:58:05 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/04/18 11:37:17 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int	ft_check_arg(va_list args, char format)
 {
-	int	returnval;
+	int		returnval;
+	char	*string;
 
 	returnval = 0;
 	if (format == 'c')
@@ -22,7 +23,13 @@ int	ft_check_arg(va_list args, char format)
 	if (format == 'i' || format == 'd')
 		returnval += ft_putnbr_fd(va_arg(args, int), 1);
 	if (format == 's')
-		returnval += ft_putstr_fd(va_arg(args, char *), 1);
+	{
+		string = va_arg(args, char *);
+		if (string != (char *) NULL)
+			returnval += ft_putstr_fd(string, 1);
+		else
+			returnval += ft_putstr_fd("(null)", 1);
+	}
 	if (format == 'u')
 		returnval += ft_put_unsigned_nbr_fd(va_arg(args, unsigned int), 1);
 	if (format == '%')
@@ -34,7 +41,6 @@ int	ft_check_arg(va_list args, char format)
 
 int	ft_printf(const char *format, ...)
 {
-	int		num_args;
 	int		returnval;
 	int		i;
 	va_list	args;
@@ -60,12 +66,9 @@ int	ft_printf(const char *format, ...)
 	return (returnval);
 }
 
-int	main(void)
-{
-	char	*abc;
-
-	printf("%i\n", &abc);
-	printf("{{%d}}\n", printf("abcdefg%% %u %s %x", 1234567, "abc", -123));
-	printf("{{%d}}\n", ft_printf("abcdefg%% %u %s %x", 1234567, "abc", -123));
-	return (0);
-}
+// int	main(void)
+// {
+// 	printf("{{%d}}\n", printf("abcdefg%% %u %s %x", 1234567, "abc", -123));
+// 	printf("{{%d}}\n", ft_printf("abcdefg%% %u %s %x", 1234567, "abc", -123));
+// 	return (0);
+// }
