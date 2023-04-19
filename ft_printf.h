@@ -6,7 +6,7 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 11:32:16 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/19 09:04:24 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/04/19 09:30:44 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <stdarg.h>
 
 int		ft_printf(const char *format, ...);
-char	*ft_strchr(const char *str, int let);
 int		ft_putchar_fd(char c, int fd);
 int		ft_putnbr_fd(int n, int fd);
 int		ft_putstr_fd(char *s, int fd);
