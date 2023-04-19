@@ -6,16 +6,16 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 09:07:10 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/18 11:37:17 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/04/19 09:09:39 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_check_arg(va_list args, char format)
 {
 	int		returnval;
-	char	*string;
+	void	*string;
 
 	returnval = 0;
 	if (format == 'c')
@@ -25,8 +25,8 @@ int	ft_check_arg(va_list args, char format)
 	if (format == 's')
 	{
 		string = va_arg(args, char *);
-		if (string != (char *) NULL)
-			returnval += ft_putstr_fd(string, 1);
+		if (string != (void *) NULL)
+			returnval += ft_putstr_fd((char *) string, 1);
 		else
 			returnval += ft_putstr_fd("(null)", 1);
 	}
@@ -36,6 +36,11 @@ int	ft_check_arg(va_list args, char format)
 		returnval += ft_putchar_fd(format, 1);
 	if (format == 'x' || format == 'X')
 		returnval += ft_puthex_fd(va_arg(args, unsigned int), 1, format);
+	if (format == 'p')
+	{
+		string = va_arg(args, char *);
+		returnval += ft_putadress((size_t) & *string);
+	}
 	return (returnval);
 }
 

@@ -6,12 +6,12 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 09:32:54 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/18 11:17:40 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/04/18 19:26:15 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putchar_fd(char c, int fd)
 {

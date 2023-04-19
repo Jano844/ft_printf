@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putadress.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/24 09:37:30 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/18 19:26:30 by jsanger          ###   ########.fr       */
+/*   Created: 2023/04/18 19:38:58 by jsanger           #+#    #+#             */
+/*   Updated: 2023/04/19 09:05:31 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr_fd(char *s, int fd)
+int	ft_putadress(size_t adress)
 {
-	unsigned int	i;
+	int	i;
 
-	i = 0;
-	while (s[i] != '\0')
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
+	i = 2;
+	ft_putchar_fd('0', 1);
+	ft_putchar_fd('x', 1);
+	i += ft_puthex_fd(adress, 1, 'x');
 	return (i);
 }
 
-// int main()
+// int	main(void)
 // {
-//     char *c;
-//     int fd;
-//     fd = 1;
-//     c = "abcd";
-//     ft_putstr_fd(c, fd);
-// 	return 0;
+// 	void	*p;
+// 	size_t	i;
+
+// 	i = (size_t) & p;
+// 	printf("%p\n", p);
+// 	printf("0x");
+// 	printf("%zx\n", i);
+// 	ft_putadress(i);
+// 	printf("\n");
+// 	printf("%zu\n", i);
+// 	return (0);
 // }

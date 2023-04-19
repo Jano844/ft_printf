@@ -6,13 +6,13 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 09:36:57 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/18 11:17:48 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/04/18 20:25:06 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_putnbr_fd(int n, int fd)
 {
@@ -40,13 +40,11 @@ int	ft_putnbr_fd(int n, int fd)
 
 int	ft_put_unsigned_nbr_fd(unsigned int n, int fd)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 1;
 	if (n >= 10)
-	{
 		i += ft_put_unsigned_nbr_fd(n / 10, fd);
-	}
 	ft_putchar_fd(n % 10 + '0', fd);
 	return (i);
 }

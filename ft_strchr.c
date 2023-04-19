@@ -6,11 +6,11 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 09:49:28 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/18 11:17:56 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/04/18 19:26:37 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 char	*ft_strchr(const char *str, int let)
 {
