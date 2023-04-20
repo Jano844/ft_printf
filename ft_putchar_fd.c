@@ -6,7 +6,7 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 09:32:54 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/19 12:07:43 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/04/19 14:15:12 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 
 int	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, 1);
+	int	i;
+
+	i = write(fd, &c, 1);
+	if (i == -1)
+		return (-1);
 	return (1);
 }
 

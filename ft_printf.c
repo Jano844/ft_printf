@@ -6,7 +6,7 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 09:07:10 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/19 12:06:58 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/04/20 11:39:27 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int	ft_printf(const char *format, ...)
 {
 	int		returnval;
 	int		i;
+	int		check;
 	va_list	args;
 
 	i = 0;
@@ -55,13 +56,16 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			returnval += ft_check_arg(args, format[i]);
+			check = ft_check_arg(args, format[i]);
+			returnval += check;
 		}
 		else
 		{
-			ft_putchar_fd(format[i], 1);
+			check = ft_putchar_fd(format[i], 1);
 			returnval++;
 		}
+		if (check == -1)
+			return (-1);
 		i++;
 	}
 	va_end(args);
@@ -70,7 +74,7 @@ int	ft_printf(const char *format, ...)
 
 // int	main(void)
 // {
-// 	printf("{{%d}}\n", printf("abcdefg%% %u %s %x", 1234567, "abc", -123));
-// 	printf("{{%d}}\n", ft_printf("abcdefg%% %u %s %x", 1234567, "abc", -123));
+// 	printf("%d\n", ft_printf("%d\n", -100));
+// 	printf("%d\n", printf("%d\n", -100));
 // 	return (0);
 // }
