@@ -6,7 +6,7 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 09:07:10 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/20 12:26:55 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/04/20 14:17:05 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,15 +48,14 @@ int	ft_printf(const char *format, ...)
 	int		check;
 	va_list	args;
 
-	i = 0;
+	i = -1;
 	returnval = 0;
 	va_start(args, format);
-	while (format[i] != '\0')
+	while (format[++i] != '\0')
 	{
 		if (format[i] == '%')
 		{
-			i++;
-			check = ft_check_arg(args, format[i]);
+			check = ft_check_arg(args, format[++i]);
 			returnval += check;
 		}
 		else
@@ -66,7 +65,6 @@ int	ft_printf(const char *format, ...)
 		}
 		if (check == -1)
 			return (-1);
-		i++;
 	}
 	va_end(args);
 	return (returnval);
