@@ -6,7 +6,7 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 09:07:10 by jsanger           #+#    #+#             */
-/*   Updated: 2023/09/25 19:16:40 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/09/25 19:22:02 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	ft_check_arg(va_list args, char format)
 	return (ret);
 }
 
-static int	ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	int		returnval;
 	int		i;
