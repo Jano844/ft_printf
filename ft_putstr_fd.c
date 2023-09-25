@@ -6,20 +6,20 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 09:37:30 by jsanger           #+#    #+#             */
-/*   Updated: 2023/09/25 19:17:36 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/09/25 19:38:00 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	ft_putstr_fd(char *s, int fd)
+int	ftpf_putstr_fd(char *s, int fd)
 {
 	unsigned int	i;
 
 	i = 0;
 	while (s[i] != '\0')
 	{
-		if (ft_putchar_fd(s[i], fd) == -1)
+		if (ftpf_putchar_fd(s[i], fd) == -1)
 			return (-1);
 		i++;
 	}
