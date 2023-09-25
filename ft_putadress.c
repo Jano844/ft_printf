@@ -6,13 +6,13 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 19:38:58 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/20 13:54:35 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/09/25 19:16:50 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putadress(size_t adress)
+static int	ft_putadress(size_t adress)
 {
 	int	i;
 	int	check;

@@ -6,13 +6,13 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 15:51:45 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/20 13:58:10 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/09/25 19:17:13 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthex_fd(size_t n, int fd, char c)
+static int	ft_puthex_fd(size_t n, int fd, char c)
 {
 	int	i;
 
@@ -20,7 +20,7 @@ int	ft_puthex_fd(size_t n, int fd, char c)
 	return (num_to_hex(n, fd, c, i));
 }
 
-int	num_to_hex(size_t n, int fd, char c, int i)
+static int	num_to_hex(size_t n, int fd, char c, int i)
 {
 	if (n <= 9)
 	{

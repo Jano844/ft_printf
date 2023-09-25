@@ -6,13 +6,13 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 09:37:30 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/20 10:46:21 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/09/25 19:17:36 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putstr_fd(char *s, int fd)
+static int	ft_putstr_fd(char *s, int fd)
 {
 	unsigned int	i;
 

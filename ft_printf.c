@@ -6,13 +6,13 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 09:07:10 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/20 14:17:05 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/09/25 19:16:40 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_check_arg(va_list args, char format)
+static int	ft_check_arg(va_list args, char format)
 {
 	int		ret;
 	void	*str;
@@ -41,7 +41,7 @@ int	ft_check_arg(va_list args, char format)
 	return (ret);
 }
 
-int	ft_printf(const char *format, ...)
+static int	ft_printf(const char *format, ...)
 {
 	int		returnval;
 	int		i;

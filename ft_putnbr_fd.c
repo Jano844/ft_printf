@@ -6,7 +6,7 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/24 09:36:57 by jsanger           #+#    #+#             */
-/*   Updated: 2023/04/20 11:40:51 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/09/25 19:17:28 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include "ft_printf.h"
 
-int	ft_putnbr_fd(int n, int fd)
+static int	ft_putnbr_fd(int n, int fd)
 {
 	int	i;
 	int	check;
@@ -41,7 +41,7 @@ int	ft_putnbr_fd(int n, int fd)
 	return (i);
 }
 
-int	ft_put_unsigned_nbr_fd(unsigned int n, int fd)
+static int	ft_put_unsigned_nbr_fd(unsigned int n, int fd)
 {
 	unsigned int	i;
 	int				check;
