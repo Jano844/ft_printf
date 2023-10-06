@@ -6,13 +6,13 @@
 /*   By: jsanger <jsanger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/17 09:07:10 by jsanger           #+#    #+#             */
-/*   Updated: 2023/09/25 19:37:44 by jsanger          ###   ########.fr       */
+/*   Updated: 2023/10/06 12:55:13 by jsanger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
- int	ft_check_arg(va_list args, char format)
+int	ft_check_arg(va_list args, char format)
 {
 	int		ret;
 	void	*str;
